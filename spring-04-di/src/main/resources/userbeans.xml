@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    命名空间注入 可以直接注入属性 p命名和c命名不能直接使用，需要导入xml约束。-->
+<!--    这边必须是无参数构造 直接注入-->
+    <bean id="user" class="com.kuang.pojo.User" p:name="许晗" p:age="18"/>
+<!--这边必须是有参数构造  通过构造器注入-->
+
+<!--    单例模式-->
+<!--    <bean id="user2" class="com.kuang.pojo.User" c:name = "shi-lin2" c:age="18" scope="singleton"/>-->
+<!--    原型模式-->
+    <bean id="user2" class="com.kuang.pojo.User" c:name = "shi-lin2" c:age="18" scope="prototype"/>
+
+
+
+
+
+
+
+
+
+
+
+</beans>

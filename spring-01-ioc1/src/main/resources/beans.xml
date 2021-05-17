@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="UserDapMySqlImpl" class="com.kuang.dao.UserDapMySqlImpl"></bean>
+
+    <bean id="UserDaoOrcleImpl" class="com.kuang.dao.UserDaoOrcleImpl"></bean>
+
+    <bean id="UserServiceImpl" class="com.kuang.service.UserServiceImpl">
+<!--        ref 引用Spring中创建好的对象
+            value 具体的值 基本数据类型-->
+        <property name="userDao" ref="UserDaoOrcleImpl">
+        </property>
+
+    </bean>
+
+
+</beans>

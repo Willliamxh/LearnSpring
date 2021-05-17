@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    使用Spring来创建我们的对象,再spring中 在这些都被称为Bean
+        Hello hello= new Hello()
+        id=变量名
+        class =new的对象
+        property 相当于给对象中的属性设置一个值
+        bean=对象  new Hello
+        他这边会使用set去进行注入  所以我们必须要使用set方法
+        -->
+    <bean id="hello" class="com.kuang.pojo.Hello">
+        <!-- collaborators and configuration for this bean go here -->
+        <property name="str" value="Spring"></property>
+
+    </bean>
+
+
+
+
+</beans>

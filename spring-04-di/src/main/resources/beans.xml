@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="student" class="com.kuang.pojo.Student">
+        <!--    第一种 普通值注入 直接使用value-->
+        <property name="name" value="许晗"/>
+<!--        第二种 beans注入 -->
+        <property name="address" ref="address"/>
+
+<!--        数组注入 ref-->
+        <property name="books">
+            <array>
+                <value>Java 程序设计</value>
+                <value>Python 从入门到精通</value>
+                <value>MYSQL 必知必会</value>
+            </array>
+        </property>
+
+
+        <!--List 注入-->
+        <property name="hobbies">
+            <list>
+                <value>编程</value>
+                <value>听音乐</value>
+                <value>看电影</value>
+            </list>
+        </property>
+
+        <!--Map 注入-->
+        <property name="card">
+            <map>
+                <entry key="学生卡" value="1234567"/>
+                <entry key="身份证" value="123453232367"/>
+                <entry key="银行卡" value="3332434343434343"/>
+            </map>
+        </property>
+
+        <!--Set 注入-->
+        <property name="games">
+            <set>
+                <value>LOL</value>
+                <value>王者荣耀</value>
+                <value>BOB</value>
+            </set>
+        </property>
+
+
+        <!--Null 注入-->
+        <property name="wife">
+            <null></null>
+        </property>
+
+
+        <!--properties 注入-->
+        <property name="info">
+            <props>
+                <prop key="driver">com.mysql.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://localhost:3306/mydb</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <bean id="address" class="com.kuang.pojo.Address">
+        <property name="address" value="南京"/>
+
+
+    </bean>
+
+
+
+
+</beans>
