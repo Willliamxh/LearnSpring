@@ -15,8 +15,8 @@
         <module>spring-04-di</module>
         <module>spring-05-Autowirte</module>
         <module>spring-06-anno</module>
-        <module>AppConfig</module>
         <module>spring-07-appconfig</module>
+        <module>spring-08-proxy</module>
     </modules>
 
 
