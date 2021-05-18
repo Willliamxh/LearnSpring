@@ -11,6 +11,7 @@
         <module name="spring-06-anno" />
         <module name="spring-03-ioc2" />
         <module name="spring-07-appconfig" />
+        <module name="spring-09-AOP" />
         <module name="spring-01-ioc1" />
         <module name="spring-05-Autowirte" />
         <module name="spring-08-proxy" />

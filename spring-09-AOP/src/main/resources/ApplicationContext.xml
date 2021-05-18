@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!--    注册bean-->
+    <bean id="userService" class="com.kuang.service.UserServiceImpl"/>
+    <bean id="log" class="com.kuang.log.Log"/>
+    <bean id="afterLog" class="com.kuang.log.AfterLog"/>
+
+
+<!--    方式三-->
+    <bean id="AnnotationPointCut" class="com.kuang.Diy.AnnotationPointCut"/>
+<!--    开启注解支持-->
+    <aop:aspectj-autoproxy/>
+
+
+
+
+
+<!--    方式一：使用原生Spring API接口
+配置文件里只说明用哪几个通知，根据类的定义（实现）去分配具体的功能（before/after)-->
+<!--&lt;!&ndash;方式一： 使用原生的Spring API&ndash;&gt;-->
+<!--&lt;!&ndash;    配置aop  需要导入aop的约束&ndash;&gt;-->
+<!--    <aop:config>-->
+<!--&lt;!&ndash;        首先需要一个切入点  expression(要执行的位置):表达式&ndash;&gt;-->
+<!--&lt;!&ndash;        execution(返回值类型 类名.方法名(..))  *代表任意的意思，(..)任意参数&ndash;&gt;-->
+<!--        <aop:pointcut id="pointCut" expression="execution(* com.kuang.service.UserServiceImpl.*(..))"/>-->
+
+<!--&lt;!&ndash;        执行环绕增强&ndash;&gt;-->
+<!--&lt;!&ndash;        advice就是要增强的功能，pointcut就是要被增强的方法，在通过advisor关联起来就ok了&ndash;&gt;-->
+<!--        <aop:advisor advice-ref="log" pointcut-ref="pointCut"/>-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointCut"/>-->
+
+
+<!--    </aop:config>-->
+
+<!--    方式二 自定义类-->
+<!--    方式二：自定义类 配置文件里说明切面类的某个方法是做什么的，这样就不用限制类本身性质了-->
+<!--    就是比第一种少了一个继承，其实差不多-->
+<!--    <bean id="diy" class="com.kuang.Diy.DiyPointCut"/>-->
+
+
+<!--    <aop:config>-->
+<!--&lt;!&ndash;        自定义切面 ref 要引用的类&ndash;&gt;-->
+<!--        <aop:aspect ref="diy">-->
+<!--&lt;!&ndash;            切入点&ndash;&gt;-->
+<!--            <aop:pointcut id="point" expression="execution(* com.kuang.service.UserServiceImpl.*(..))"/>-->
+<!--        &lt;!&ndash;通知&ndash;&gt;-->
+<!--&lt;!&ndash;            在这个切入点之后去执行这个方法&ndash;&gt;-->
+<!--            <aop:before method="before" pointcut-ref="point"/>-->
+<!--            <aop:after method="after" pointcut-ref="point"/>-->
+
+<!--        </aop:aspect>-->
+
+<!--    </aop:config>-->
+
+
+
+
+
+
+
+</beans>
